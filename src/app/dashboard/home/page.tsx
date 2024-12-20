@@ -7,6 +7,7 @@ import Analytics from "@/components/dashboard/home/Analytics";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { AnalyticsProps } from "@/types/dashboard";
+import { toast } from "react-toastify";
 
 export default function Dashboard() {
   const [dashboardData, setDashboardData] = useState();
@@ -16,10 +17,9 @@ export default function Dashboard() {
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_BASE_URL}/applications/stats`,
       );
-      console.log(response);
       setDashboardData(response.data);
     } catch (error) {
-      console.error("Error fetching dashboard data:", error);
+      toast.error("Error fetching data!")
     }
   };
 
@@ -42,7 +42,7 @@ export default function Dashboard() {
 
           <div className="bg-white rounded-xl p-5 w-full flex flex-col gap-5">
             <h1 className="text-gray-700">Bar Chart</h1>
-            <ChartOne chartData={BarChartData.chartData} />
+            <ChartOne chartData={dashboardData} />
           </div>
         </section>
       </div>

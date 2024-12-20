@@ -1,7 +1,11 @@
 import { AnalyticsProps } from "@/types/dashboard";
 import React from "react";
 
-const Analytics: React.FC<AnalyticsProps> = ({ dashboardData }) => {
+interface AnalyticProp {
+  dashboardData?: AnalyticsProps;
+}
+
+const Analytics: React.FC<AnalyticProp> = ({ dashboardData }) => {
   return (
     <div className="flex md:flex-nowrap flex-wrap gap-2 md:gap-8 pb-10">
       <div className="bg-white md:w-64 w-[47%] rounded-lg border p-5">

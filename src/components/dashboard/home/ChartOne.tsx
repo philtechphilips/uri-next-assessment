@@ -11,6 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { AnalyticsProps } from "@/types/dashboard";
 
 ChartJS.register(
   CategoryScale,
@@ -24,7 +25,7 @@ ChartJS.register(
 
 interface LineChartProp {
   hidLegend?: boolean;
-  chartData: any;
+  chartData?: AnalyticsProps;
 }
 interface Dataset {
   label: string;
@@ -53,9 +54,9 @@ const ChartOne: React.FC<LineChartProp> = ({ chartData }) => {
     ],
   };
 
-  chartData?.forEach((value: any) => {
-    data.labels.push(value.period);
-    data.datasets[0].data.push(value.avg_points);
+  chartData?.monthCounts?.forEach((value: any) => {
+    data.labels.push(value.month);
+    data.datasets[0].data.push(value.value);
   });
   const options = {
     responsive: true,

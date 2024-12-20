@@ -1,13 +1,16 @@
-type DashboardData = {
-  totalApplications: number;
-  statusCounts: {
-    accepted: number;
-    pending: number;
-    rejected: number;
-  };
-  monthCounts: Record<string, number>;
+type StatusCounts = {
+  accepted: number;
+  pending: number;
+  rejected: number;
+};
+
+type MonthCount = {
+  month: string; 
+  value: number;
 };
 
 export type AnalyticsProps = {
-  dashboardData?: DashboardData;
+  totalApplications: number;
+  statusCounts: StatusCounts;
+  monthCounts: MonthCount[];
 };
