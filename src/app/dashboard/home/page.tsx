@@ -8,6 +8,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { AnalyticsProps } from "@/types/dashboard";
 import { toast } from "react-toastify";
+import StatusChart from "@/components/dashboard/home/StatusChart";
 
 export default function Dashboard() {
   const [dashboardData, setDashboardData] = useState();
@@ -40,9 +41,16 @@ export default function Dashboard() {
         <section className="mt-20">
           <Analytics dashboardData={dashboardData} />
 
-          <div className="bg-white rounded-xl p-5 w-full flex flex-col gap-5">
-            <h1 className="text-gray-700">Applications</h1>
-            <ChartOne chartData={dashboardData} />
+          <div className="flex md:flex-row flex-col gap-2 mb-16">
+            <div className="bg-white rounded-xl p-5 md:w-3/5 flex flex-col gap-5">
+              <h1 className="text-gray-700">Applications</h1>
+              <ChartOne chartData={dashboardData} />
+            </div>
+
+            <div className="bg-white rounded-xl p-5 md:w-2/5 flex flex-col gap-5">
+              <h1 className="text-gray-700">Applications By Status</h1>
+              <StatusChart />
+            </div>
           </div>
         </section>
       </div>
