@@ -19,7 +19,7 @@ export default function Dashboard() {
       );
       setDashboardData(response.data);
     } catch (error) {
-      toast.error("Error fetching data!")
+      toast.error("Error fetching data!");
     }
   };
 
@@ -41,7 +41,7 @@ export default function Dashboard() {
           <Analytics dashboardData={dashboardData} />
 
           <div className="bg-white rounded-xl p-5 w-full flex flex-col gap-5">
-            <h1 className="text-gray-700">Bar Chart</h1>
+            <h1 className="text-gray-700">Applications</h1>
             <ChartOne chartData={dashboardData} />
           </div>
         </section>

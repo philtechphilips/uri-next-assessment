@@ -5,7 +5,7 @@ type StatusCounts = {
 };
 
 type MonthCount = {
-  month: string; 
+  month: string;
   value: number;
 };
 

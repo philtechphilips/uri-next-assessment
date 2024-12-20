@@ -3,6 +3,9 @@ import { BarChartData } from "@/constants/data";
 import DashboardLayout from "@/layouts/dasboard";
 import Table from "@/components/dashboard/home/Table";
 import Analytics from "@/components/dashboard/home/Analytics";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Applications() {
   return (
@@ -16,7 +19,7 @@ export default function Applications() {
         <section className="mt-8">
           <div className="bg-white mt-8 rounded-xl relative py-5 w-full flex flex-col gap-5 mb-10">
             <div className="sticky top-0">
-              <h1 className="text-gray-700 px-5">Table</h1>
+              <h1 className="text-gray-700 px-5">All Applications</h1>
             </div>
             <Table />
           </div>
