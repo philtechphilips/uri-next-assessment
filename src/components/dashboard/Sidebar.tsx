@@ -1,23 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "remixicon/fonts/remixicon.css";
 import Link from "next/link";
-import useUserStore from "@/store/userStore";
 import { usePathname, useRouter } from "next/navigation";
-import styles from "../../app/styles/dashboard.module.scss";
 import { SIDEBAR } from "@/constants/dashboard";
-import { COLOURS } from "@/constants/colors";
 import { navStore } from "@/store/nav";
 
 const Sidebar = () => {
   const { open, toggleOpen } = navStore();
   const currentPath = usePathname();
-  const { clearUser } = useUserStore();
   const router = useRouter();
-
-  const logOut = () => {
-    clearUser();
-    router.push("/auth/sign-in");
-  };
 
   return (
     <aside
